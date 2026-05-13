@@ -3,161 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escola Horizonte Colorido | Portal Oficial</title>
+    <title>PROHERF - Portal Escolar</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <div class="logo-circle">EHC</div>
-            <h1>Horizonte Colorido</h1>
+        <div class="logo">
+            <svg width="50" height="50" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="#FFB7C5" />
+                <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-family="Arial" font-weight="bold" font-size="20">PH</text>
+            </svg>
+            <span>PROHERF</span>
         </div>
         <nav>
             <ul>
+                <li><a href="#home">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#calendario">Calendário</a></li>
                 <li><a href="#destaques">Destaques</a></li>
-                <li><a href="#login" class="btn-login">Acessar Conta</a></li>
             </ul>
         </nav>
+        <div class="login-area">
+            <button onclick="toggleLogin()" id="loginBtn">Área do Aluno</button>
+            <div id="userAccount" class="user-profile" style="display: none;">
+                <span>Bem-vindo, Aluno!</span>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
     </header>
 
-    <section class="hero">
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h3>Login PROHERF</h3>
+            <input type="text" placeholder="Usuário">
+            <input type="password" placeholder="Senha">
+            <button onclick="realizarLogin()">Entrar</button>
+            <button onclick="toggleLogin()" class="close">Fechar</button>
+        </div>
+    </div>
+
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Educação que transforma com carinho e cores.</h2>
-            <p>Bem-vindo ao portal da Escola Horizonte Colorido, onde o futuro começa hoje.</p>
+            <h1>Bem-vindo à PROHERF</h1>
+            <p>Onde o aprendizado encontra a criatividade.</p>
         </div>
     </section>
 
-    <section id="sobre" class="section-padding">
-        <div class="container">
-            <h2>Nossa História</h2>
-            <div class="sobre-texto">
-                <p>Fundada com o propósito de unir excelência acadêmica e bem-estar emocional, a <strong>Escola Horizonte Colorido</strong> é referência em ensino humanizado. Acreditamos que cada aluno é único e merece um ambiente que estimule sua criatividade e curiosidade.</p>
-                <p>Nossa infraestrutura foi pensada para ser um segundo lar. Com laboratórios de última geração, espaços de lazer integrados à natureza e um corpo docente altamente qualificado, preparamos nossos jovens não apenas para os vestibulares, mas para os desafios da vida globalizada.</p>
+    <section id="sobre" class="content-section">
+        <h2>Nossa História</h2>
+        <div class="text-block">
+            <p>A <strong>PROHERF</strong> nasceu do desejo de transformar a educação básica em uma experiência vibrante e acolhedora. Fundada com o propósito de integrar tecnologia e humanismo, nossa instituição se destaca pelo método de ensino personalizado, onde cada aluno é visto como um protagonista de sua própria jornada acadêmica.</p>
+            <p>Acreditamos que um ambiente colorido, seguro e estimulante é a chave para o desenvolvimento cognitivo. Com infraestrutura de ponta e um corpo docente altamente qualificado, a PROHERF não apenas ensina fórmulas e datas, mas prepara cidadãos prontos para os desafios do século XXI, focando em inteligência emocional e resolução de problemas.</p>
+        </div>
+    </section>
+
+    <section id="calendario" class="content-section color-bg">
+        <h2>Calendário Acadêmico 2024</h2>
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button>&lt;</button>
+                <h3>Maio</h3>
+                <button>&gt;</button>
             </div>
-        </div>
-    </section>
-
-    <section id="calendario" class="section-padding bg-azul">
-        <div class="container">
-            <h2>Calendário Acadêmico 2024</h2>
-            <div class="calendar-wrapper">
-                <div class="calendar-header">
-                    <button>&#10094;</button>
-                    <span>Maio 2024</span>
-                    <button>&#10095;</button>
-                </div>
-                <table class="calendar-table">
-                    <thead>
-                        <tr>
-                            <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendar-body">
-                        <tr>
-                            <td></td><td></td><td></td><td>1</td><td>2</td><td class="event">3</td><td>4</td>
-                        </tr>
-                        <tr>
-                            <td>5</td><td>6</td><td class="event-blue">7</td><td>8</td><td>9</td><td>10</td><td>11</td>
-                        </tr>
-                        <tr>
-                            <td>12</td><td>13</td><td>14</td><td>15</td><td class="event-yellow">16</td><td>17</td><td>18</td>
-                        </tr>
-                        <tr>
-                            <td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
-                        </tr>
-                        <tr>
-                            <td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="legend">
-                    <span class="dot pink"></span> Provas <span class="dot blue"></span> Feriado <span class="dot yellow"></span> Evento
-                </div>
+            <table class="calendar-table">
+                <thead>
+                    <tr>
+                        <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+                    <tr><td>8</td><td>9</td><td>10</td><td>11</td><td class="event">12</td><td>13</td><td>14</td></tr>
+                    <tr><td>15</td><td class="event-blue">16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
+                    <tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+                    <tr><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+            <div class="legenda">
+                <span class="dot pink"></span> Provas | <span class="dot blue"></span> Feriado
             </div>
         </div>
     </section>
 
-    <section id="destaques" class="section-padding">
-        <div class="container">
-            <h2>Alunos de Destaque</h2>
-            <div class="destaques-grid">
-                <div class="card">
-                    <div class="avatar">MA</div>
-                    <h3>Mariana Andrade</h3>
-                    <p>Medalha de Ouro na Olimpíada de Matemática.</p>
-                </div>
-                <div class="card">
-                    <div class="avatar">RC</div>
-                    <h3>Ricardo Costa</h3>
-                    <p>Líder do projeto de Sustentabilidade 2024.</p>
-                </div>
-                <div class="card">
-                    <div class="avatar">LB</div>
-                    <h3>Luiza Britto</h3>
-                    <p>Melhor desempenho em Redação e Artes.</p>
-                </div>
+    <section id="destaques" class="content-section">
+        <h2>Alunos de Destaque</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-img">🎓</div>
+                <h3>Mariana Silva</h3>
+                <p>Medalhista de Ouro na Olimpíada de Matemática.</p>
+            </div>
+            <div class="card">
+                <div class="card-img">🎨</div>
+                <h3>João Pedro</h3>
+                <p>Destaque em Artes Visuais e Projetos Sustentáveis.</p>
+            </div>
+            <div class="card">
+                <div class="card-img">💻</div>
+                <h3>Bia Oliveira</h3>
+                <p>Desenvolveu o novo sistema de biblioteca da escola.</p>
             </div>
         </div>
     </section>
 
-    <section id="login" class="section-padding bg-amarelo">
-        <div class="login-container">
-            <h2>Portal do Aluno</h2>
-            <div id="login-form">
-                <input type="text" placeholder="Matrícula ou E-mail">
-                <input type="password" placeholder="Senha">
-                <button onclick="fazerLogin()">Entrar</button>
+    <div class="chat-bot-container">
+        <div id="chatBox" class="chat-box">
+            <div class="chat-header">PROHERF Bot</div>
+            <div id="chatMessages" class="chat-messages">
+                <p class="bot-msg">Olá! Sou o assistente da PROHERF. Como posso ajudar?</p>
             </div>
-            <div id="user-profile" style="display:none;">
-                <div class="profile-info">
-                    <p>Bem-vindo, <strong>Gabriel Silva</strong>!</p>
-                    <p>Série: 2º Ano Ensino Médio</p>
-                    <button class="btn-logout" onclick="fazerLogout()">Sair</button>
-                </div>
-                <div class="chatbot">
-                    <div class="chat-header">Assistente Virtual</div>
-                    <div id="chat-window">
-                        <p class="bot-msg">Olá! Sou o assistente da escola. Em que posso ajudar?</p>
-                    </div>
-                    <div class="chat-input">
-                        <input type="text" id="user-input" placeholder="Pergunte algo...">
-                        <button onclick="botResponder()">Enviar</button>
-                    </div>
-                </div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Pesquisar no site...">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
-    </section>
+        <button class="chat-toggle" onclick="toggleChat()">💬</button>
+    </div>
 
     <footer>
-        <p>&copy; 2024 Escola Horizonte Colorido - Todos os direitos reservados.</p>
+        <p>&copy; 2024 Escola PROHERF - Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        function fazerLogin() {
-            document.getElementById('login-form').style.display = 'none';
-            document.getElementById('user-profile').style.display = 'block';
+        function toggleLogin() {
+            const modal = document.getElementById('loginModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        function fazerLogout() {
-            document.getElementById('login-form').style.display = 'block';
-            document.getElementById('user-profile').style.display = 'none';
+        function realizarLogin() {
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('userAccount').style.display = 'flex';
+            document.getElementById('loginModal').style.display = 'none';
+            alert('Login realizado com sucesso!');
         }
 
-        function botResponder() {
-            const input = document.getElementById('user-input');
-            const chatWindow = document.getElementById('chat-window');
-            if (input.value.trim() !== "") {
-                chatWindow.innerHTML += `<p class="user-msg"><strong>Você:</strong> ${input.value}</p>`;
-                setTimeout(() => {
-                    chatWindow.innerHTML += `<p class="bot-msg"><strong>Bot:</strong> Estou verificando sua solicitação sobre "${input.value}" no nosso banco de dados escolar...</p>`;
-                    chatWindow.scrollTop = chatWindow.scrollHeight;
-                }, 1000);
-                input.value = "";
-            }
+        function toggleChat() {
+            const chat = document.getElementById('chatBox');
+            chat.classList.toggle('active');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const messages = document.getElementById('chatMessages');
+            if (input.value.trim() === "") return;
+
+            // Mensagem do Usuário
+            messages.innerHTML += `<p class="user-msg">${input.value}</p>`;
+            
+            // Lógica do Bot (Simulação)
+            setTimeout(() => {
+                let response = "Desculpe, não encontrei informações sobre isso. Tente pesquisar sobre 'provas' ou 'horários'.";
+                if(input.value.toLowerCase().includes("prova")) response = "As provas começam no dia 12 de maio!";
+                if(input.value.toLowerCase().includes("oi")) response = "Olá! Como vai o estudo hoje?";
+                
+                messages.innerHTML += `<p class="bot-msg">${response}</p>`;
+                messages.scrollTop = messages.scrollHeight;
+            }, 500);
+
+            input.value = "";
         }
     </script>
 </body>
