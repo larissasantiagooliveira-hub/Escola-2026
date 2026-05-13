@@ -1,166 +1,78 @@
-:root {
-    --primary: #2d6a4f; /* Verde Folha */
-    --secondary: #74c69d; /* Verde Claro */
-    --dark: #1b4332; /* Verde Escuro */
-    --accent: #d4a373; /* Tom de Terra/Grãos */
-    --light: #f8f9fa;
-}
-
+/* Configurações Gerais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-}
-
-body {
-    background-color: var(--light);
-    color: #333;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
 
-/* Navegação */
-nav {
+body {
+    background-color: #ffffff;
+    color: #444;
+}
+
+/* Navbar */
+header {
+    background-color: #B3E5FC; /* Azul Bebê */
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 8%;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--dark);
-}
-
-.logo span {
-    color: var(--secondary);
+.logo img {
+    height: 50px;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    align-items: center;
 }
 
-nav ul li { margin-left: 2rem; }
+nav ul li {
+    margin-left: 20px;
+}
 
 nav ul li a {
     text-decoration: none;
-    color: var(--dark);
-    font-weight: 500;
+    color: #333;
+    font-weight: 600;
     transition: 0.3s;
 }
 
-nav ul li a:hover { color: var(--primary); }
-
-.btn-nav {
-    background: var(--primary);
-    color: white !important;
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
+nav ul li a:hover {
+    color: #FF69B4;
 }
 
-/* Hero Section */
-header {
-    height: 80vh;
-    background: linear-gradient(rgba(27, 67, 50, 0.7), rgba(27, 67, 50, 0.7)), 
-                url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80');
-    background-size: cover;
-    background-position: center;
+/* Seção Hero */
+.hero {
+    height: 60vh;
+    background: linear-gradient(135deg, #FFD1DC, #FFF9C4);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    color: white;
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+/* Seções */
+.section-padding {
+    padding: 80px 10%;
+    text-align: center;
 }
 
-.hero-content h1 span { color: var(--secondary); }
-
-.hero-content p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 2rem;
-}
-
-.btn-primary {
-    padding: 1rem 2rem;
-    background: var(--accent);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-right: 1rem;
-}
-
-.btn-secondary {
-    padding: 1rem 2rem;
-    border: 2px solid white;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Stats Bar */
-.stats {
-    display: flex;
-    justify-content: space-around;
-    padding: 3rem 10%;
-    background: var(--dark);
-    color: white;
-}
-
-.stat-item h2 {
-    color: var(--secondary);
+h2 {
+    margin-bottom: 30px;
+    color: #555;
     font-size: 2.5rem;
 }
 
-/* Info Section */
-.info-section {
-    display: flex;
-    align-items: center;
-    padding: 5rem 10%;
-    gap: 4rem;
-}
-
-.info-text span {
-    color: var(--primary);
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.info-text h2 {
-    font-size: 2.5rem;
-    margin: 1rem 0;
-    color: var(--dark);
-}
-
-.placeholder-img {
-    width: 400px;
-    height: 300px;
-    background: #e9ecef;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    border: 2px dashed #ccc;
-    color: #999;
-}
-
-footer {
-    background: #f1f3f5;
-    text-align: center;
-    padding: 2rem;
-    color: #666;
-}
+/* Sobre */
+.container-texto {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;

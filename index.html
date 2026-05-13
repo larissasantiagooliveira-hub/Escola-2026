@@ -3,61 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte | Futuro Sustentável</title>
+    <title>Portal Escolar Arco-Íris</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Agro<span>Forte</span></div>
-        <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#tecnologia">Tecnologia</a></li>
-            <li><a href="#sustentabilidade">Sustentabilidade</a></li>
-            <li><a href="#contato" class="btn-nav">Fale Conosco</a></li>
-        </ul>
-    </nav>
-
-    <header id="inicio">
-        <div class="hero-content">
-            <h1>O Futuro do Campo é <span>Sustentável</span></h1>
-            <p>Unindo tecnologia de precisão e respeito ao meio ambiente para alimentar o amanhã.</p>
-            <div class="cta-group">
-                <a href="#tecnologia" class="btn-primary">Nossa Tecnologia</a>
-                <a href="#" class="btn-secondary">Relatório ESG 2026</a>
-            </div>
+    <header>
+        <div class="logo">
+            <img src="sua-logo-aqui.png" alt="Logo Escola">
         </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Nossa Escola</a></li>
+                <li><a href="#calendario">Calendário</a></li>
+                <li><a href="#destaques">Alunos Destaque</a></li>
+                <li><button id="btn-login" onclick="abrirModal()">Login</button></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="stats">
-        <div class="stat-item">
-            <h2>+40%</h2>
-            <p>De Eficiência Hídrica</p>
-        </div>
-        <div class="stat-item">
-            <h2>Zero</h2>
-            <p>Desmatamento Ilegal</p>
-        </div>
-        <div class="stat-item">
-            <h2>100%</h2>
-            <p>Rastreabilidade</p>
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Bem-vindo ao Futuro do Aprendizado</h1>
+            <p>Onde a criatividade e o conhecimento se encontram.</p>
         </div>
     </section>
 
-    <section class="info-section" id="tecnologia">
-        <div class="info-text">
-            <span>Inovação Digital</span>
-            <h2>Monitoramento via Satélite e IA</h2>
-            <p>Utilizamos algoritmos avançados para analisar a saúde do solo e prever colheitas, reduzindo o desperdício de insumos em até 30%.</p>
-        </div>
-        <div class="info-image">
-            <div class="placeholder-img">Monitoramento 24/7</div>
+    <section id="sobre" class="section-padding">
+        <h2>Nossa História</h2>
+        <div class="container-texto">
+            <p>Fundada com o propósito de transformar a educação básica em uma experiência lúdica e profunda, nossa instituição se destaca pelo método de ensino humanizado. Acreditamos que cada aluno é um universo único, e nossa missão é fornecer as ferramentas para que esse brilho próprio se manifeste através das artes, ciências e tecnologia.</p>
+            <p>Com infraestrutura de ponta e um corpo docente altamente qualificado, oferecemos um ambiente seguro e acolhedor. Aqui, as cores rosa, amarelo e azul não são apenas estética, representam a harmonia, a alegria do aprender e a serenidade do crescimento.</p>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Agro Forte S.A. - Cultivando um amanhã melhor.</p>
-    </footer>
+    <section id="calendario" class="section-padding">
+        <h2>Calendário Acadêmico 2024</h2>
+        <div class="calendar-container">
+            <div class="month-card">
+                <h3>Janeiro</h3>
+                <ul>
+                    <li>05 - Início das Matrículas</li>
+                    <li>20 - Reunião de Pais</li>
+                </ul>
+            </div>
+            <div class="month-card">
+                <h3>Fevereiro</h3>
+                <ul>
+                    <li>01 - Início das Aulas</li>
+                    <li>15 - Baile de Carnaval</li>
+                </ul>
+            </div>
+            <div class="month-card">
+                <h3>Março</h3>
+                <ul>
+                    <li>12 - Feira de Ciências</li>
+                    <li>28 - Gincana Escolar</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
+    <section id="destaques" class="section-padding">
+        <h2>Alunos de Destaque</h2>
+        <div class="destaques-grid">
+            <div class="aluno-card">
+                <div class="avatar">🎓</div>
+                <h3>Ana Beatriz</h3>
+                <p>Medalha de Ouro na Olimpíada de Matemática.</p>
+            </div>
+            <div class="aluno-card">
+                <div class="avatar">🎨</div>
+                <h3>Lucas Silva</h3>
+                <p>Vencedor do prêmio regional de Artes Visuais.</p>
+            </div>
+            <div class="aluno-card">
+                <div class="avatar">🚀</div>
+                <h3>Mariana Costa</h3>
+                <p>Líder do projeto de Robótica Sustentável.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="bot-container">
+        <div id="chat-window">
+            <div id="chat-output">Olá! Eu sou o Assistente Virtual. Como posso ajudar?</div>
+            <input type="text" id="chat-input" placeholder="Pesquise aqui...">
+            <button onclick="falarComBot()">Perguntar</button>
+        </div>
+    </div>
+
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2>Área do Aluno</h2>
+            <input type="text" id="user" placeholder="Usuário">
+            <input type="password" id="pass" placeholder="Senha">
+            <button onclick="fazerLogin()">Entrar</button>
+            <div id="perfil-aluno" style="display:none; margin-top:20px;">
+                <p>Bem-vindo, <strong>Aluno Nota 10!</strong></p>
+                <p>Status: Ativo</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
